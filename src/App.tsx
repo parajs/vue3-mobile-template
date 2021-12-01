@@ -1,18 +1,12 @@
 import { defineComponent } from 'vue';
+// import { RouterView } from 'vue-router';
 import './App.css';
-import HelloWorld from './components/HelloWorld';
 
 export default defineComponent({
-  props: {
-  },
-
-  setup(props) {
-
+  name: 'App',
+  setup() {
     return () => (
-      <>
-        <img alt="Vue logo" src="@/assets/logo.png" />
-        <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-      </>
+        <router-view></router-view>
     )
   }
 })

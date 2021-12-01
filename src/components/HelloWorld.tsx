@@ -8,6 +8,7 @@ export default defineComponent({
 
   setup(props) {
     const count = ref(0)
+    const flag = ref(true)
     const { msg } = props;
 
 
@@ -15,12 +16,16 @@ export default defineComponent({
       count.value++;
     };
 
+    const open = () =>{
+        alert(msg)
+    }
+
     return () => (
       <>
        <Test />
         <HelloWorldVue msg = "Hello World Vue"/>
         
-        <h1>{ msg }</h1>
+        <h1 onClick={open}>{ msg }</h1>
        
         <p>
           Recommended IDE setup:
@@ -29,7 +34,7 @@ export default defineComponent({
           <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
         </p>
 
-        <p>See <code>README.md</code> for more information.</p>
+        <p v-show={flag.value}>See <code>README.md</code> for more information.</p>
 
         <p>
           <a href="https://vitejs.dev/guide/features.html" target="_blank">

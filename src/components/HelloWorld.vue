@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
+import { onMounted, ref } from 'vue';
+import Test from './Test';
 defineProps<{ msg: string }>()
 
 const count = ref(0)
+onMounted(() => {
+  console.log(this)
+})
 </script>
 
 <template>
+<Test />
   <h1>{{ msg }}</h1>
 
   <p>
