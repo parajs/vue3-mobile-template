@@ -3,11 +3,21 @@ import { createRouter, createWebHistory, Router, RouteRecordRaw } from 'vue-rout
 const routes: RouteRecordRaw[] = [
   {
     path:"/",
-    component: ()=> import("@/views/home")
+    component: ()=> import("@/views/Home"),
+    meta: {
+      keepAlive: true
+    }
   },
   {
-    path:"/home",
-    component: ()=> import("@/views/home")
+    path:"/my",
+    component: ()=> import("@/views/My"),
+  },
+  {
+    path:"/detail",
+    component: ()=> import("@/views/Detail"),
+    meta: {
+      keepAlive: true
+    }
   }
 ];
 const router: Router = createRouter({
