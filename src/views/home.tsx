@@ -1,3 +1,4 @@
+import { api_index_list } from '@/api';
 import { Button } from 'vant';
 import { defineComponent, onActivated, onBeforeUpdate, onDeactivated, onErrorCaptured, onMounted, onRenderTracked, onRenderTriggered, onUnmounted, onUpdated, ref } from 'vue';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
@@ -56,9 +57,16 @@ export default defineComponent({
         console.log('onRenderTriggered',e);
      })
      
-      
+    const { data } = api_index_list();
        return ()=> (
            <>
+                {
+                data.value && (data.value as any).list.map((item: AnyObject)=>{
+                  return (
+                    <div>{item.title}</div>
+                  )
+                })
+                }
                 <div>{msg.value}</div>
                 <RouterLink to="/my">跳转到我的</RouterLink>
                 <Button onClick={ clickButton }>跳转到我的</Button>
