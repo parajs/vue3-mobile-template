@@ -25,6 +25,7 @@
     "typescript": "^4.4.3",
     "vite": "^2.6.4",
     "vite-plugin-style-import": "^1.4.0",
+    "vite-plugin-vconsole": "^1.1.0",
     "vue-tsc": "^0.3.0"
   }
 }

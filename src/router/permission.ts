@@ -1,39 +1,9 @@
-import { createRouter, createWebHistory, Router, RouteRecordRaw } from 'vue-router';
 
-const routes: RouteRecordRaw[] = [
-  {
-    path:"/",
-    component: ()=> import("@/views/Home"),
-    meta: {
-      keepAlive: true
-    }
-  },
-  {
-    path:"/my",
-    component: ()=> import("@/views/My"),
-  },
-  {
-    path:"/detail",
-    component: ()=> import("@/views/Detail"),
-    meta: {
-      keepAlive: true
-    }
-  },
-  {
-    path:"/login",
-    component: ()=> import("@/views/Login.vue"),
-  }
-];
-
-const router: Router = createRouter({
-  history: createWebHistory(),
-  routes: routes
-});
+import router from './index';
 
 
 const whiteList = ["Home", "Test", "My", "Detail"]; // no redirect whitelist
 
-// 路由拦截
 router.beforeEach(async(to, from, next) => {
    // set page title/
    document.title = getPageTitle(to.meta.title);
@@ -65,6 +35,3 @@ router.beforeEach(async(to, from, next) => {
      }
    }
 });
-
-
-export default router;
