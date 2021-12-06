@@ -18,6 +18,10 @@ const routes: RouteRecordRaw[] = [
     meta: {
       keepAlive: true
     }
+  },
+  {
+    path:"/login",
+    component: ()=> import("@/views/Login.vue"),
   }
 ];
 const router: Router = createRouter({

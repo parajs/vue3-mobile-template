@@ -13,7 +13,7 @@ export default defineComponent({
                     <div>{item.title}</div>
                   )
                 })
-                }
+          }
 
                 <RouterLink to="/detail">跳转到详情</RouterLink>
          </>  

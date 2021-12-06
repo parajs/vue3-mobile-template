@@ -1,11 +1,23 @@
-import { defineComponent } from "vue";
-import { RouterLink } from "vue-router";
+import Page from "@/components/Page/Page";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
     name: "Detail",
     setup(){
+
+        const ref1 = ref();
+        const slots = {
+            default: () => <div>A</div>,
+            header: () => <div>B</div>,
+            footer: () => <span>B</span>,
+          };
+
         return ()=>(
-            <RouterLink to="/">详情跳到首页</RouterLink>
+            <div>
+                 <Page   ref={ref1}  v-slots={slots}></Page>
+            </div>
+           
+            // <RouterLink to="/">详情跳到首页</RouterLink>
         )
     }
 })
