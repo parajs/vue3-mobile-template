@@ -2,13 +2,14 @@ import { useEventListener } from "@vueuse/core";
 import { defineComponent, nextTick, onMounted, ref } from 'vue';
 import "./index.css";
 export default defineComponent({
-    name:'Page',
+    name:'CPage',
     setup(props,{slots}){
         const header = ref();
         const main = ref();
         const footer = ref();
         const headerh = ref(0);
         const footerh = ref(0);
+        const ev =  window.onorientationchange ? "orientationchange" :"resize";
         const initPageLayout = ()=>{
             nextTick(()=>{
                 headerh.value = header.value?.offsetHeight || 0;
@@ -20,7 +21,7 @@ export default defineComponent({
             initPageLayout();
         })
 
-        useEventListener(window,"resize",()=>{
+        useEventListener(window,ev,()=>{
             initPageLayout();
         })
 

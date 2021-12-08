@@ -2,18 +2,18 @@ import { createI18n } from "vue-i18n";
 
 export function loadLang() {
     const context = import.meta.globEager("./lang/*.ts");
-    const lang: AnyObject = {};
+    const messages: AnyObject = {};
 
-    let langs = Object.keys(context);
-    for (let key of langs) {
+    const langs = Object.keys(context);
+    for (const key of langs) {
         if (key === "./index.ts") return;
-        let lang = context[key].lang;
-        let name = key.replace(/(\.\/lang\/|\.ts)/g, '');
+        const lang = context[key].lang;
+        const name = key.replace(/(\.\/lang\/|\.ts)/g, '');
      
-        lang[name] = lang
+        messages[name] = lang
     }
     
-    return lang
+    return messages
 }
 
 export const i18n = createI18n({

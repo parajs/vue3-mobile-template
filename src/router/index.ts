@@ -1,49 +1,34 @@
-import { createRouter, createWebHistory, Router, RouteRecordRaw } from 'vue-router';
+import store from '@/store';
+import { useTitle } from '@vueuse/core';
+import { useCookies } from '@vueuse/integrations/useCookies';
+import { createRouter, createWebHistory, Router } from 'vue-router';
+import routes from './routes';
 
-const routes: RouteRecordRaw[] = [
-  {
-    path:"/",
-    component: ()=> import("@/views/Home"),
-    meta: {
-      keepAlive: true
-    }
-  },
-  {
-    path:"/my",
-    component: ()=> import("@/views/My"),
-  },
-  {
-    path:"/detail",
-    component: ()=> import("@/views/Detail"),
-    meta: {
-      keepAlive: true
-    }
-  },
-  {
-    path:"/login",
-    component: ()=> import("@/views/Login.vue"),
-  }
-];
+const { VITE_TOKEN_KEY, VITE_TITLE} = import.meta.env;
+
 
 const router: Router = createRouter({
   history: createWebHistory(),
   routes: routes
 });
 
+// authList
+const authList: Array<string> = []; 
 
-const whiteList = ["Home", "Test", "My", "Detail"]; // no redirect whitelist
-
-// 路由拦截
 router.beforeEach(async(to, from, next) => {
-   // set page title/
-   document.title = getPageTitle(to.meta.title);
+  // set title
+   useTitle( to.meta?.title as string || VITE_TITLE as string);
 
    // determine whether the user has logged in
-   const hasToken = getCookie(process.env.VUE_APP_TOKEN);
+   const hasToken = useCookies().get(VITE_TOKEN_KEY as string);
    if (hasToken) {
-     const hasGetUserInfo = store.getters.user.id;
-     if (hasGetUserInfo) {
-       next();
+     const hasUserInfo = store.getters.user.id;
+     if (hasUserInfo) {
+      if (to.name == 'Login') {
+        next('/');
+       } else {
+         next();
+       }
      } else {
        try {
          // get user info
@@ -56,15 +41,17 @@ router.beforeEach(async(to, from, next) => {
      }
    } else {
      // has no token
-     if (whiteList.indexOf(to.name) !== -1) {
+     if (authList.indexOf(to.name as string) == -1) {
        // in the free login whitelist, go directly
        next();
      } else {
        // other pages that do not have permission to access are redirected to the login page.
-       next(`/login?redirect=${to.fullPath}`);
+       next({name:'Login',query:{redirect: to.fullPath}});
      }
    }
 });
+
+
 
 
 export default router;

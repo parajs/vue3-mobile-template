@@ -1,4 +1,4 @@
-import CPage from "@/components/CPage";
+import Page from "@/components/Page/Page";
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
@@ -14,7 +14,7 @@ export default defineComponent({
 
         return ()=>(
             <div>
-                 <CPage   ref={ref1}  v-slots={slots}></CPage>
+                 <Page   ref={ref1}  v-slots={slots}></Page>
             </div>
            
             // <RouterLink to="/">详情跳到首页</RouterLink>

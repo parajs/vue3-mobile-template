@@ -2,6 +2,7 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import path from "path";
 import { ConfigEnv, UserConfigExport } from 'vite';
+import eslintPlugin from 'vite-plugin-eslint';
 import styleImport, { VantResolve } from 'vite-plugin-style-import';
 import { viteVConsole } from 'vite-plugin-vconsole';
 function resolve(dir: string) {
@@ -14,7 +15,6 @@ export default function ({ command } : ConfigEnv): UserConfigExport{
   console.log(command)
   return {
     server: {
-      open: true,
       proxy: {
         '/api': {
           target: 'http://api.beehub.paradeum.com',
@@ -29,6 +29,7 @@ export default function ({ command } : ConfigEnv): UserConfigExport{
     plugins: [
       vue(),
       vueJsx(),
+      eslintPlugin(),
       viteVConsole({
         entry: path.resolve('src/main.ts'), // entry file
         localEnabled: command == 'serve', // dev environment
