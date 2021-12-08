@@ -1,0 +1,25 @@
+.appTitle {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.videoPlayItem {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.videoItem {
+    background-color: #fff;
+    padding: 12px;
+}
+
+.grayT {
+    font-size: 13px;
+    color: var(--van-gray-6);
+}
+
+.titleItem {
+    font-size: 16px;
+}

@@ -4,7 +4,7 @@ const routes: RouteRecordRaw[] = [
     {
       name: 'Home',
       path:"/",
-      component: ()=> import("@/views/Home"),
+      component: ()=> import("@/views/home/Home"),
       meta: {
         keepAlive: true
       }
@@ -23,6 +23,14 @@ const routes: RouteRecordRaw[] = [
       name: 'ResourceList',
       path:"/resourceList",
       component: ()=> import("@/views/ResourceList"),
+    },
+    {
+      name: 'Detail',
+      path:"/detail",
+      component: ()=> import("@/views/Detail"),
+      meta: {
+        keepAlive: true
+      }
     },
     {
       name: 'Detail',

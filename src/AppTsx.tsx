@@ -9,7 +9,6 @@ export default defineComponent({
       <ConfigProvider theme-vars={{blue: "#6476FF"}}>
         <Suspense onFallback={()=><div> Loading...</div>}>
             <RouterView>
-            
                 {        
                 // @ts-ignore
                   ({ Component, route }) => {

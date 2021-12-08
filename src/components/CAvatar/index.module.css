@@ -1,0 +1,22 @@
+.avatarBox {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    color: #fff;
+}
+
+.avatarBox img {
+    border-radius: inherit;
+    display: inline-flex;
+    height: inherit;
+    width: inherit;
+    background-size: cover;
+   
+}
