@@ -12,7 +12,7 @@ const routes: RouteRecordRaw[] = [
     {
       name: 'Login',  
       path:"/login",
-      component: ()=> import("@/views/Login"),
+      component: ()=> import("@/views/login/Login"),
     },
     {
       name: 'My',

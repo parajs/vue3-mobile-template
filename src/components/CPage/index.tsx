@@ -10,11 +10,24 @@ export default defineComponent({
         const headerh = ref(0);
         const footerh = ref(0);
         const ev =  window.onorientationchange ? "orientationchange" :"resize";
-        const initPageLayout = ()=>{
+
+        const setHeaderHeight = ()=>{
             nextTick(()=>{
-                headerh.value = header.value?.offsetHeight || 0;
+                 headerh.value = header.value?.offsetHeight || 0;
+             })
+        }
+
+        
+        const setFooterHeight = ()=>{
+            nextTick(()=>{
                 footerh.value = footer.value?.offsetHeight || 0;
-            })
+             })
+        }
+
+
+        const initPageLayout = ()=>{
+            slots.footer ? setFooterHeight() : null;
+            slots.header ? setHeaderHeight() : null;
         }
 
         onMounted(()=>{
@@ -26,7 +39,7 @@ export default defineComponent({
         })
 
         return ()=> (
-            <>
+            <div>
                 {
                     slots.header ? (  
                     <header
@@ -46,8 +59,9 @@ export default defineComponent({
                     {slots.default?.()}
                 </main>
 
+
                 {
-                    slots.footer ? <div style={{'height':footer.value+'px'}}></div> : null
+                    slots.footer ? <div style={{'height':footerh.value+'px'}}></div> : null
                 }
 
                 {
@@ -61,7 +75,7 @@ export default defineComponent({
                     ) :null
                 }
                
-            </>
+            </div>
         )
     }
 })

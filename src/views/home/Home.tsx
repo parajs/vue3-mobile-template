@@ -4,7 +4,7 @@ import CPage from '@/components/CPage';
 import CTabbar from '@/components/CTabbar';
 import { Icon, Image, NavBar } from 'vant';
 import { defineComponent } from "vue";
-import styles from "./index.module.css";
+import styles from "./home.module.css";
 const { VITE_TITLE } = import.meta.env;
 
 
@@ -26,18 +26,17 @@ export default defineComponent({
    }
 
        return ()=> (
-              <CPage v-slots={slots}>
+              <CPage v-slots={slots} style="background:var(--van-gray-1)">
                   <NavBar  v-slots={navbarslots}></NavBar>
-                  <VideoItem />
-                  <VideoItem />
-                  <VideoItem />
+                  <VideoItem class="mb-2" />
+                  <VideoItem class="mb-2"/>
+                  <VideoItem class="mb-2"/>
               </CPage>
        )
    }
 })
 
-
-const VideoItem = ()=>(
+const VideoItem = (props: AnyObject)=>(
    <div class={styles.videoItem}>
       <Image radius="6" width="100%" height="160" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg">
          <Icon class={styles.videoPlayItem} name="play" size="60" color="#fff" />

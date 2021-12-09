@@ -4,7 +4,7 @@ export default defineComponent({
     name:"CTabbar",
     setup(){
         return ()=>(
-            <Tabbar route fixed style={{borderTop: "1px solid #ddd"}}>
+            <Tabbar route fixed={false} style={{borderTop: "1px solid #ddd"}}>
                 <TabbarItem to={{name:'Home'}} >
                     <Icon  name="wap-home-o" size="40" />
                 </TabbarItem>
