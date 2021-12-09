@@ -16,7 +16,6 @@ export default defineComponent({
                  headerh.value = header.value?.offsetHeight || 0;
              })
         }
-
         
         const setFooterHeight = ()=>{
             nextTick(()=>{

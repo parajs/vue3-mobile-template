@@ -9,8 +9,13 @@ export default defineComponent({
    name:'My',
    setup(){
    const { data } =  api_subindex_list({});
+
+   const slots = {
+      footer: () => <CTabbar />
+    };
+
        return ()=> (
-        <CPage>
+        <CPage v-slots={slots}>
            <div class={styles.myHeader}>
                <div class={`${styles.userBox} flex`}>
                   <div class="flexItem">
@@ -46,9 +51,6 @@ export default defineComponent({
               </div>
               <Button plain  type="default"   block>退出登录</Button>
            </div>
-        {{
-           footer: () => <CTabbar />,
-        }}
       </CPage>
         
        )
