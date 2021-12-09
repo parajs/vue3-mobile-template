@@ -1,11 +1,9 @@
-
 import CPage from "@/components/CPage";
 import { Button, Field, Form, Icon, NavBar } from 'vant';
 import { defineComponent } from "vue";
-import { RouterLink } from 'vue-router';
-import styles from './login.module.less';
+import styles from './forgetPwd.module.less';
 export default defineComponent({
-    name:"Login",
+    name: 'ResetPwd',
     setup(){
         return ()=> (
             <CPage>
@@ -14,29 +12,25 @@ export default defineComponent({
                         left:()=>(
                             <>
                                 <Icon name="arrow-left" color="var(--van-black)" />
-                                <span class='ml-2'>欢迎来到 KuggaMeta</span>
+                                <span class='ml-2'>返回登录</span>
                             </>
                         )
                     }}
                 </NavBar>
                 <div class="pa-5">
                     <div class="flex mt-8" style="color:var(--van-blue)">
-                        <div class={`${styles.accountLogin} flexItem`}>账号登录</div>
-                        <div>注册</div>
+                        <div class={styles.accountLogin}>忘记密码</div>
                     </div>
                     <Form class="mt-8">
                         <Field class={styles.inputText} placeholder="请输入邮箱账号" />
-                        <Field class={styles.inputText} type='password' placeholder="请输入密码" />
+                        <div class={styles.getCode}>
+                            <Field class={styles.inputText} placeholder="请输入验证码" />
+                            <div class={styles.getCodeBtn}>获取验证码</div>
+                        </div>
                         <Button class="mt-6"type="primary" round block> 
-                            登录
+                            下一步
                         </Button>
                     </Form>
-                    <div class="mt-8 flex">
-                        <div class="flexItem"></div>
-                        <RouterLink to={{name:'ForgetPwd'}}>
-                            忘记密码？
-                        </RouterLink>
-                    </div>
                 </div>
             </CPage>
         )

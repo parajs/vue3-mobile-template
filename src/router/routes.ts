@@ -1,3 +1,4 @@
+
 import { RouteRecordRaw } from "vue-router";
 
 const routes: RouteRecordRaw[] = [
@@ -15,9 +16,19 @@ const routes: RouteRecordRaw[] = [
       component: ()=> import("@/views/login/Login"),
     },
     {
+      name: 'ForgetPwd',  
+      path:"/forgetPwd",
+      component: ()=> import("@/views/forgetPwd/ForgetPwd"),
+    },
+    {
+      name: 'ResetPwd',  
+      path:"/resettPwd",
+      component: ()=> import("@/views/forgetPwd/ForgetPwd"),
+    },
+    {
       name: 'My',
       path:"/my",
-      component: ()=> import("@/views/My"),
+      component: ()=> import("@/views/my/My"),
     },
     {
       name: 'ResourceList',
