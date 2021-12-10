@@ -1,12 +1,11 @@
+import CArticleItem from '@/components/CArticleItem/index';
 import CAudioItem from "@/components/CAudioItem";
 import CPage from "@/components/CPage";
 import CTabbar from "@/components/CTabbar";
 import CVideoItem from "@/components/CVideoItem";
 import { Icon, NavBar, Tab, Tabs } from "vant";
 import { defineComponent } from "vue";
-import CArticleItem from '../../components/CArticleItem/index';
 import styles from "./resourceList.module.css";
-const { VITE_TITLE } = import.meta.env;
 
 
 
@@ -28,7 +27,7 @@ export default defineComponent({
                     <>
                         <NavBar  v-slots={navbarslots}></NavBar>
                         <Tabs swipeable color="var(--van-blue)">
-                            <Tab title="视频" title-style="font-size:1.1rem">
+                            <Tab title="视频" title-style="font-size:1rem">
                                 <div class="flex pa-3">
                                     <div class="flexItem">
                                         总共（8）视频
@@ -44,7 +43,7 @@ export default defineComponent({
                                     <CVideoItem class="mb-3" />
                                 </div>
                             </Tab>
-                            <Tab title="音频" title-style="font-size:1.1rem">
+                            <Tab title="音频" title-style="font-size:1rem">
                                 <div class="flex pa-3">
                                     <div class="flexItem">
                                         总共（8）音频
@@ -60,7 +59,7 @@ export default defineComponent({
                                     <CAudioItem class="mb-3" />
                                 </div>
                             </Tab>
-                            <Tab title="文章" title-style="font-size:1.1rem">
+                            <Tab title="文章" title-style="font-size:1rem">
                                 <div class="flex pa-3">
                                     <div class="flexItem">
                                         总共（8）文章

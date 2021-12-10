@@ -6,7 +6,7 @@ export default defineComponent({
   name: 'App',
   setup() {
     return () => (
-      <ConfigProvider theme-vars={{blue: "#6476FF"}}>
+      <ConfigProvider theme-vars={{blue: "#6476FF",navBarArrowSize:"1.4rem"}}>
         <Suspense onFallback={()=><div> Loading...</div>}>
             <RouterView>
                 {        
