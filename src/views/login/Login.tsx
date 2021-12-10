@@ -1,6 +1,6 @@
 
 import CPage from "@/components/CPage";
-import { Button, Field, Form, Icon, NavBar } from 'vant';
+import { Button, Field, Form, NavBar } from 'vant';
 import { defineComponent } from "vue";
 import { RouterLink } from 'vue-router';
 import styles from './login.module.less';
@@ -9,15 +9,15 @@ export default defineComponent({
     setup(){
         return ()=> (
             <CPage>
-                <NavBar>
-                    {{
+                <NavBar leftText="欢迎来到 KuggaMeta"  left-arrow >
+                    {/* {{
                         left:()=>(
                             <>
                                 <Icon name="arrow-left" color="var(--van-black)" />
                                 <span class='ml-2'>欢迎来到 KuggaMeta</span>
                             </>
                         )
-                    }}
+                    }} */}
                 </NavBar>
                 <div class="pa-5">
                     <div class="flex mt-8" style="color:var(--van-blue)">
