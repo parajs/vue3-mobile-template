@@ -37,7 +37,7 @@ export default defineComponent({
                  </Col>
                  <Col span="8">
                      <div class={styles.myCicle}>
-                        <Icon name="records" size="20" />
+                        <Icon name="edit" size="20" />
                      </div>
                      <div>资料</div>
                  </Col>

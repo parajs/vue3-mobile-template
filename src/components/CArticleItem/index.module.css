@@ -1,0 +1,15 @@
+.articleItemBox {
+    background-color: #fff;
+    padding: 12px;
+}
+
+.grayT {
+    font-size: 13px;
+    color: var(--van-gray-6);
+}
+
+.articleCover {
+    width: 150px;
+    height: 80px;
+    position: relative;
+}

@@ -2,3 +2,7 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+.lastPer {
+    color: var(--van-gray-6);
+}

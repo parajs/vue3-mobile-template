@@ -33,7 +33,7 @@ const routes: RouteRecordRaw[] = [
     {
       name: 'ResourceList',
       path:"/resourceList",
-      component: ()=> import("@/views/ResourceList"),
+      component: ()=> import("@/views/resourceList/ResourceList"),
     },
     {
       name: 'Detail',

@@ -1,0 +1,27 @@
+
+.grayT {
+    font-size: 13px;
+    color: var(--van-gray-6);
+}
+
+
+.audioCover {
+    width: 65px;
+    height: 65px;
+    position: relative;
+}
+
+.audioItemBox {
+    background-color: #fff;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+}
+
+
+.videoPlayItem {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

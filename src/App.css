@@ -1,5 +1,6 @@
 html, body, #app,.van-config-provider {
   height: 100%;
+  background: #f2f2f2;
 }
 
 .ml-1 {
@@ -187,6 +188,18 @@ html, body, #app,.van-config-provider {
     text-overflow: ellipsis !important;
 }
 
+
+.text-truncate-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  height: 40px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -205,6 +218,7 @@ html, body, #app,.van-config-provider {
 
 .flexItem {
   flex: 1;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 320px) {
