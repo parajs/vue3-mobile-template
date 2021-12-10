@@ -11,6 +11,10 @@
   /* Status bar height on iOS 11+ */
   padding-bottom: calc(env(safe-area-inset-bottom) * 1);
 }
+
+.page-container {
+  height: inherit;
+}
 .page-header {
   position: fixed; 
   top: 0;
