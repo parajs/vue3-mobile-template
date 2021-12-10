@@ -2,6 +2,7 @@ import { api_subindex_list } from '@/api';
 import CAvatar from '@/components/CAvatar';
 import CPage from '@/components/CPage';
 import CTabbar from '@/components/CTabbar';
+import router from '@/router';
 import { Button, Col, Icon, Row } from 'vant';
 import { defineComponent } from 'vue';
 import styles from './my.module.less';
@@ -9,6 +10,24 @@ export default defineComponent({
    name:'My',
    setup(){
    const { data } =  api_subindex_list({});
+
+   const navigatePage = (type: string) => {
+      if(type === 'follow'){
+        router.push({name:"FollowList"})
+      }  
+      if(type === 'msg'){
+         router.push({name:"MsgList"})
+      }  
+      if(type === 'profile'){
+         router.push({name:"Profile"})
+      }  
+
+      if(type === 'pwd'){
+         router.push({name:"ForgetPwd"})
+      }  
+      
+   }
+  
 
    const slots = {
       footer: () => <CTabbar />
@@ -27,15 +46,15 @@ export default defineComponent({
                   </div>
                </div>
               <Row class={styles.threePart}>
-                 <Col span="8">
-                     <div class={styles.myCicle}>20</div>
-                     <div>关注</div>
+                 <Col span="8" onClick={()=>{ navigatePage("follow") }}>
+                        <div class={styles.myCicle}>20</div>
+                        <div>关注</div>
                  </Col>
-                 <Col span="8">
+                 <Col span="8"  onClick={()=>{ navigatePage("msg") }}>
                      <div class={styles.myCicle}>20</div>
                      <div>消息</div>
                  </Col>
-                 <Col span="8">
+                 <Col span="8"  onClick={()=>{ navigatePage("profile") }}>
                      <div class={styles.myCicle}>
                         <Icon name="edit" size="20" />
                      </div>
@@ -45,7 +64,7 @@ export default defineComponent({
            </div>
 
            <div class="pa-4" style="margin-top: 40px">
-              <div class={styles.modifyPwd}>
+              <div class={styles.modifyPwd} onClick={()=>{ navigatePage("pwd") }}>
                  <div class="flexItem">修改密码</div>
                  <Icon name='arrow' color='#ddd' />
               </div>

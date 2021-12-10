@@ -22,8 +22,8 @@ const routes: RouteRecordRaw[] = [
     },
     {
       name: 'ResetPwd',  
-      path:"/resettPwd",
-      component: ()=> import("@/views/forgetPwd/ForgetPwd"),
+      path:"/resetPwd",
+      component: ()=> import("@/views/resetPwd/ResetPwd"),
     },
     {
       name: 'My',
@@ -41,7 +41,7 @@ const routes: RouteRecordRaw[] = [
       component: ()=> import("@/views/msgList/MsgList"),
     },
     {
-      name: 'followList',
+      name: 'FollowList',
       path:"/followList",
       component: ()=> import("@/views/followList/FollowList"),
     },
@@ -54,14 +54,6 @@ const routes: RouteRecordRaw[] = [
       name: 'Register',
       path:"/register",
       component: ()=> import("@/views/register/Register"),
-    },
-    {
-      name: 'Detail',
-      path:"/detail",
-      component: ()=> import("@/views/Detail"),
-      meta: {
-        keepAlive: true
-      }
     },
     {
       name: 'Detail',
