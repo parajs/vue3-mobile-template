@@ -31,7 +31,7 @@ export default defineComponent({
                                     </CAvatar>
                                 </div>
                                 <Form class="mt-8">
-                                    <Field label-align="center"  label="昵称" border show-word-limit placeholder="请输入昵称" maxlength="20"/>
+                                    <Field label="昵称" border show-word-limit placeholder="请输入昵称" maxlength="20"/>
                                     <Field class="mt-5" border label="个人介绍" show-word-limit autosize  type='textarea' placeholder="请输入个人介绍" maxlength="400" />
                                 </Form>
                                 
