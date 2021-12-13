@@ -14,7 +14,6 @@ function resolve(dir: string) {
 // https://vitejs.dev/config/
 
 export default function ({ command } : ConfigEnv): UserConfigExport{
-  console.log(command)
   return {
     server: {
       proxy: {
