@@ -13,7 +13,7 @@ import styles from "./index.module.css";
     return (
         <div class={styles.articleItemBox}>
             {
-                true ? (
+                cover ? (
                     <>
                         <div class="flex">
                             <div class={styles.articleCover}>

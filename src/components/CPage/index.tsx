@@ -38,7 +38,7 @@ export default defineComponent({
         })
 
         return ()=> (
-            <div>
+            <div class="page-container">
                 {
                     slots.header ? (  
                     <header
