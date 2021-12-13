@@ -22,11 +22,11 @@ export default defineComponent({
                 <div class="pa-5">
                     <div class="flex mt-8" style="color:var(--van-blue)">
                         <div class={`${styles.accountLogin} flexItem`}>账号登录</div>
-                        <div>注册</div>
+                        <RouterLink to={{name:'Register'}} >注册</RouterLink>
                     </div>
                     <Form class="mt-8">
-                        <Field class={styles.inputText} placeholder="请输入邮箱账号" />
-                        <Field class={styles.inputText} type='password' placeholder="请输入密码" />
+                        <Field class={styles.inputText} placeholder="请输入邮箱账号" autocomplete="off" />
+                        <Field class={styles.inputText} type='password' placeholder="请输入密码" autocomplete="off" />
                         <Button class="mt-6"type="primary" round block> 
                             登录
                         </Button>

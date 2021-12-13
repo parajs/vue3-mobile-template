@@ -1,3 +1,4 @@
+import legacy from '@vitejs/plugin-legacy';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import path from "path";
@@ -5,6 +6,7 @@ import { ConfigEnv, UserConfigExport } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
 import styleImport, { VantResolve } from 'vite-plugin-style-import';
 import { viteVConsole } from 'vite-plugin-vconsole';
+
 function resolve(dir: string) {
   return path.join(__dirname, dir);
 }
@@ -30,6 +32,14 @@ export default function ({ command } : ConfigEnv): UserConfigExport{
       vue(),
       vueJsx(),
       eslintPlugin(),
+      styleImport({
+        libs: [
+          VantResolve()
+        ],
+      }),
+      legacy({
+        targets: ['defaults', 'not IE 11']
+      }),
       viteVConsole({
         entry: path.resolve('src/main.ts'), // entry file
         localEnabled: command == 'serve', // dev environment
@@ -38,11 +48,6 @@ export default function ({ command } : ConfigEnv): UserConfigExport{
           maxLogNumber: 1000,
           theme: 'dark'
         }
-      }),
-      styleImport({
-        libs: [
-          VantResolve()
-        ],
       }),
     ],
     resolve:{

@@ -8,16 +8,20 @@ import styles from './msgList.module.css';
 export default defineComponent({
     name: "MsgList",
     setup(){
+        const onClickLeft = ()=>{
+            history.back();
+        }
+
         return ()=>(
             <CPage>
                 {
                     {  
                     header:()=>(
-                        <NavBar  left-arrow title="消息"></NavBar>
+                        <NavBar onClick-left={onClickLeft}  left-arrow title="消息" ></NavBar>
                     ),
                     default: ()=>(
                         <>
-                            <div class={styles.msgItem}>
+                            <div class={`${styles.msgItem} border-bottom`}>
                                 <div class="flex" style="color:var(--van-gray-6)">
                                     <div class="flexItem">关注提醒</div>
                                     <div>1小时前</div>

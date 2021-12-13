@@ -1,8 +1,8 @@
-import CArticleItem from '@/components/CArticleItem/index';
-import CAudioItem from "@/components/CAudioItem";
+import { CResourceListArticleItem } from '@/components/CArticleItem';
+import { CResourceListAudioItem } from "@/components/CAudioItem";
 import CPage from "@/components/CPage";
 import CTabbar from "@/components/CTabbar";
-import CVideoItem from "@/components/CVideoItem";
+import { CResourceListVideoItem } from "@/components/CVideoItem";
 import { Icon, NavBar, Tab, Tabs } from "vant";
 import { defineComponent } from "vue";
 import styles from "./resourceList.module.css";
@@ -38,9 +38,9 @@ export default defineComponent({
                                     </div>
                                 </div>
                                 <div>
-                                    <CVideoItem class="mb-3" />
-                                    <CVideoItem class="mb-3" />
-                                    <CVideoItem class="mb-3" />
+                                    <CResourceListVideoItem class="mb-3" />
+                                    <CResourceListVideoItem class="mb-3" />
+                                    <CResourceListVideoItem class="mb-3" />
                                 </div>
                             </Tab>
                             <Tab title="音频" title-style="font-size:1rem">
@@ -54,9 +54,9 @@ export default defineComponent({
                                     </div>
                                 </div>
                                 <div>
-                                    <CAudioItem class="mb-3" />
-                                    <CAudioItem class="mb-3" />
-                                    <CAudioItem class="mb-3" />
+                                    <CResourceListAudioItem class="mb-3" />
+                                    <CResourceListAudioItem class="mb-3" />
+                                    <CResourceListAudioItem class="mb-3" />
                                 </div>
                             </Tab>
                             <Tab title="文章" title-style="font-size:1rem">
@@ -70,9 +70,9 @@ export default defineComponent({
                                     </div>
                                 </div>
                                 <div>
-                                    <CArticleItem class="mb-3" />
-                                    <CArticleItem class="mb-3" />
-                                    <CArticleItem class="mb-3" />
+                                    <CResourceListArticleItem class="mb-3" />
+                                    <CResourceListArticleItem class="mb-3" />
+                                    <CResourceListArticleItem class="mb-3" />
                                 </div>
                             </Tab>
                         </Tabs>

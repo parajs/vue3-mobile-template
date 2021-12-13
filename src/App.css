@@ -1,6 +1,10 @@
 html, body, #app,.van-config-provider {
   height: 100%;
-  background: #f2f2f2;
+  /* background: #f2f2f2; */
+}
+
+a {
+  color: var(--van-blue);
 }
 
 .ml-1 {
@@ -215,10 +219,17 @@ html, body, #app,.van-config-provider {
 }
 
 
-
 .flexItem {
   flex: 1;
   overflow: hidden;
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--van-gray-4);
+}
+
+.border-top {
+  border-top: 1px solid var(--van-gray-4);
 }
 
 @media screen and (min-width: 320px) {

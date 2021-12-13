@@ -31,6 +31,11 @@ const routes: RouteRecordRaw[] = [
       component: ()=> import("@/views/my/My"),
     },
     {
+      name: 'PersonalHome',
+      path:"/personalHome",
+      component: ()=> import("@/views/personalHome/PersonalHome"),
+    },
+    {
       name: 'ResourceList',
       path:"/resourceList",
       component: ()=> import("@/views/resourceList/ResourceList"),
@@ -54,6 +59,16 @@ const routes: RouteRecordRaw[] = [
       name: 'Register',
       path:"/register",
       component: ()=> import("@/views/register/Register"),
+    },
+    {
+      name: 'ModifyPwd',
+      path:"/modifyPwd",
+      component: ()=> import("@/views/modifyPwd/ModifyPwd"),
+    },
+    {
+      name: 'MyResetPwd',
+      path:"/myResetPwd",
+      component: ()=> import("@/views/myResetPwd/MyResetPwd"),
     },
     {
       name: 'Detail',

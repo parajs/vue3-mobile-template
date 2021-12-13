@@ -7,7 +7,7 @@ import styles from "./index.module.css";
  * 文章项
  * @param props 
  */
- const  CArticleItem = (props: AnyObject)=>{
+ const  CHomeArticleItem = (props: AnyObject)=>{
     const {cover} = props;
 
     return (
@@ -52,6 +52,54 @@ import styles from "./index.module.css";
         </div>
     )
  }
+
+
+ /**
+ * 已购页文章项
+ * @param props 
+ */
+  const  CResourceListArticleItem = (props: AnyObject)=>{
+    const {cover} = props;
+
+    return (
+        <div class={`${styles.articleItemBox} border-bottom`}>
+            {
+                cover ? (
+                    <>
+                        <div class="flex">
+                            <div class={styles.articleCover}>
+                                <Image radius="6" width="100%" height="inherit" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg">
+                                </Image>
+                            </div>
+                            <div class="flexItem ml-3">
+                                <div class="text-truncate-2">这里是文章标题占位这里是文章标题占位这里是文章标</div>
+                                <div class={`${styles.grayT} mt-3`}>
+                                    作者昵称 <span class="ml-2 mr-2">|</span><span>2小时前</span>
+                                </div>
+                            </div>
+                        </div>
+                    </>
+                    
+                ):(
+                    <>
+                      <div class="text-truncate">这里是文章标题占位这里是文章标题占位这里是文章标</div>
+                      <div class="text-truncate-2 mt-2" style="color:var(--van-gray-6)">
+                        部分文章内容部分文章内容部分文章内容部分文章内容部分文章内容部分文章内容部分文章内容部分文章内容.
+                      </div>
+                      <div class="mt-3 flex">
+                            <div class={styles.grayT}>
+                            作者昵称 <span class="ml-2 mr-2">|</span><span>2小时前</span>
+                            </div>
+                        </div>
+                    </>
+                )
+            }
+           
+           
+        </div>
+    )
+ }
+
+export { CResourceListArticleItem, CHomeArticleItem };
  
- export default CArticleItem
- 
+ export default CHomeArticleItem

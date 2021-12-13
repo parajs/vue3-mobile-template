@@ -9,6 +9,7 @@ export default defineComponent({
         return ()=> (
             <CPage>
                 <NavBar leftText="返回登录"  left-arrow>
+               
                 </NavBar>
                 <div class="pa-5">
                     <div class="flex mt-6" style="color:var(--van-blue)">

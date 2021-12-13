@@ -8,16 +8,20 @@ import styles from './followList.module.css';
 export default defineComponent({
     name: "FollowList",
     setup(){
+        const onClickLeft = ()=>{
+            history.back();
+        }
+
         return ()=>(
             <CPage>
                 {
                     {  
                     header:()=>(
-                        <NavBar  left-arrow title="我的关注"></NavBar>
+                        <NavBar onClick-left={onClickLeft}  left-arrow title="我的关注"></NavBar>
                     ),
                     default: ()=>(
                         <>
-                            <div class={styles.followItem}>
+                            <div class={`${styles.followItem} border-bottom`}>
                                 <div class="flex">
                                     <div class="flexItem">
                                         <CAvatar size="40" />
@@ -28,7 +32,7 @@ export default defineComponent({
                                     </Tag>
                                 </div>
                             </div>
-                            <div class={styles.followItem}>
+                            <div class={`${styles.followItem} border-bottom`}>
                                 <div class="flex">
                                     <div class="flexItem">
                                         <CAvatar size="40" />

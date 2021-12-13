@@ -9,12 +9,17 @@ import styles from './profile.module.css';
 export default defineComponent({
     name: "Profile",
     setup(){
+        const onClickLeft = ()=>{
+            history.back();
+        }
+         
+
         return ()=>(
             <CPage>
                 {
                     {  
                     header:()=>(
-                        <NavBar  left-arrow title="个人资料">
+                        <NavBar onClick-left={onClickLeft} left-arrow title="个人资料">
                             {{
                                 right:()=>(
                                     <Button size="small" type="primary">完成</Button>
@@ -31,8 +36,8 @@ export default defineComponent({
                                     </CAvatar>
                                 </div>
                                 <Form class="mt-8">
-                                    <Field label="昵称" border show-word-limit placeholder="请输入昵称" maxlength="20"/>
-                                    <Field class="mt-5" border label="个人介绍" show-word-limit autosize  type='textarea' placeholder="请输入个人介绍" maxlength="400" />
+                                    <Field label="昵称" style="border:1px solid var(--van-gray-2)" border show-word-limit placeholder="请输入昵称" maxlength="20"/>
+                                    <Field class="mt-5" style="border:1px solid var(--van-gray-2)" border label="个人介绍" show-word-limit autosize  type='textarea' placeholder="请输入个人介绍" maxlength="400" />
                                 </Form>
                                 
                             </div>

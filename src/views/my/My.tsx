@@ -23,7 +23,7 @@ export default defineComponent({
       }  
 
       if(type === 'pwd'){
-         router.push({name:"ForgetPwd"})
+         router.push({name:"ModifyPwd"})
       }  
       
    }
