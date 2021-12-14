@@ -26,8 +26,11 @@ export default defineComponent({
          router.push({name:"ModifyPwd"})
       }  
       
+      if(type === 'personalHome'){
+         router.push({name:"PersonalHome"})
+      }  
    }
-  
+   
 
    const slots = {
       footer: () => <CTabbar />
@@ -36,7 +39,7 @@ export default defineComponent({
        return ()=> (
         <CPage v-slots={slots}>
            <div class={styles.myHeader}>
-               <div class={`${styles.userBox} flex`}>
+               <div class={`${styles.userBox} flex`} onClick={()=>{ navigatePage("personalHome") }}>
                   <div class="flexItem">
                      <CAvatar size="60" src="https://img.yzcdn.cn/vant/cat.jpeg" />
                      <span class="ml-3">用户昵称</span>
