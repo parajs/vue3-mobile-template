@@ -1,0 +1,36 @@
+
+.grayT {
+    font-size: 13px;
+    color: var(--van-gray-6);
+}
+
+.articleTitle {
+    font-size: 18px;
+}
+
+.grayBg {
+    background: var(--van-gray-2);
+    padding: 12px;
+}
+
+.content {
+    position: relative;
+    padding: 12px;
+}
+
+.mask {
+    background: linear-gradient(transparent,#fff,#fff);
+    text-align: center;
+    color: var(--van-blue);
+    padding: 20px 0 10px;
+    position: absolute;
+    font-weight: bold;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.collection {
+    background-color: #eef9fe;
+    padding: 12px;
+}

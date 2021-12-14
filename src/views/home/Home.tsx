@@ -1,4 +1,3 @@
-import { api_index_list } from '@/api';
 import CHomeArticleItem from '@/components/CArticleItem';
 import CHomeAudioItem from '@/components/CAudioItem';
 import CPage from '@/components/CPage';
@@ -12,8 +11,6 @@ const { VITE_TITLE } = import.meta.env;
 export default defineComponent({
    name: "Home",
    setup(){
-    const { data } = api_index_list();
-
     const slots = {
       footer: () => <CTabbar />
     };
