@@ -1,3 +1,4 @@
+import { homeList } from '@/api';
 import CHomeArticleItem from '@/components/CArticleItem';
 import CHomeAudioItem from '@/components/CAudioItem';
 import CPage from '@/components/CPage';
@@ -11,6 +12,8 @@ const { VITE_TITLE } = import.meta.env;
 export default defineComponent({
    name: "Home",
    setup(){
+    
+      homeList({pageSize: 10,pageIndex:1})
     const slots = {
       footer: () => <CTabbar />
     };

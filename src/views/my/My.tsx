@@ -1,4 +1,3 @@
-import { api_subindex_list } from '@/api';
 import CAvatar from '@/components/CAvatar';
 import CPage from '@/components/CPage';
 import CTabbar from '@/components/CTabbar';
@@ -9,7 +8,6 @@ import styles from './my.module.less';
 export default defineComponent({
    name:'My',
    setup(){
-   const { data } =  api_subindex_list({});
 
    const navigatePage = (type: string) => {
       if(type === 'follow'){

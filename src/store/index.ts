@@ -20,7 +20,6 @@ export function useStore() {
     return baseUseStore();
 }
 
-console.log(import.meta.env)
 // 热重载
 if (import.meta.hot) {
     import.meta.hot?.accept(Object.keys(context), () => {

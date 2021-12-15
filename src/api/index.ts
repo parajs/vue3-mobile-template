@@ -89,7 +89,7 @@ export function loginPassword(data: AnyObject){
 }
 
 /**
- * 修改用户头像背景色
+ * 获取用户资料
  * @returns UseAxiosReturn
  */
  export function userGet(data: AnyObject){
@@ -111,4 +111,12 @@ export function loginPassword(data: AnyObject){
  */
  export function passwordChange(data: AnyObject){
     return useAxiosApi(`${urlPrefix}/user/password/change`,{method: 'POST',data});
+}
+
+/**
+ * 用户退出登录
+ * @returns UseAxiosReturn
+ */
+ export function userLogout(data: AnyObject){
+    return useAxiosApi(`${urlPrefix}/user/logout`,{method: 'POST',data});
 }

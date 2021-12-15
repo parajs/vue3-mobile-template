@@ -22,7 +22,8 @@ router.beforeEach(async(to, from, next) => {
    // determine whether the user has logged in
    const hasToken = useCookies().get(VITE_TOKEN_KEY as string);
    if (hasToken) {
-     const hasUserInfo = store.getters.user.id;
+     // @ts-ignore
+     const hasUserInfo = store.user?.user?.id;
      if (hasUserInfo) {
       if (to.name == 'Login') {
         next('/');
@@ -32,11 +33,11 @@ router.beforeEach(async(to, from, next) => {
      } else {
        try {
          // get user info
-         await store.dispatch("user/getuser");
+         await store.dispatch("user/userGet");
          next();
        } catch (error) {
          // remove token and go to home
-         await store.dispatch("user/reset");
+         await store.dispatch("user/userLogout");
        }
      }
    } else {

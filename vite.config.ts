@@ -17,7 +17,7 @@ export default function ({ command } : ConfigEnv): UserConfigExport{
   return {
     server: {
       proxy: {
-        '/api': 'http://api.beehub.paradeum.com'
+        '/api': 'http://api.beehub.paradeum.com:8110'
       }
     },
     plugins: [
