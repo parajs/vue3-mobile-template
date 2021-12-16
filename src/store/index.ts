@@ -9,7 +9,7 @@ export interface State {
 
 export const key: InjectionKey<Store<State>> = Symbol();
 
-const store = createStore({
+const store = createStore<State>({
     modules,
     strict: true,
     plugins: DEV ? [createLogger()] : []

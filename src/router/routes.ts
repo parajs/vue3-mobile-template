@@ -70,15 +70,6 @@ const routes: RouteRecordRaw[] = [
       path:"/myResetPwd",
       component: ()=> import("@/views/myResetPwd/MyResetPwd"),
     },
-    {
-      name: 'Detail',
-      path:"/detail",
-      component: ()=> import("@/views/Detail"),
-      meta: {
-        keepAlive: true
-      }
-    },
-    
   ];
 
 
