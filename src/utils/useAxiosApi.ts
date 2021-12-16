@@ -1,11 +1,12 @@
 import store from '@/store';
 import { useAxios } from '@vueuse/integrations/useAxios';
 import axios, { AxiosRequestConfig } from 'axios';
-import { Notify } from 'vant';
+import { Toast } from 'vant';
 
 
 // create an axios instance
 const instance = axios.create({
+  withCredentials: false,
   timeout: 5000,
 });
   
@@ -13,14 +14,13 @@ const instance = axios.create({
   instance.interceptors.request.use(
     config => {
       // do something before request is sent
-      // @ts-ignore
-      const token = store.user.user?.token;
+      const token = store.state.user.token;
       if (token) {
         // let each request carry token
         config.headers = {
           ...config.headers,
           Authorization: `Bearer ${token}`,
-      }
+        }
       }
       return config;
     },
@@ -49,10 +49,10 @@ const instance = axios.create({
   
       // if the custom code is not 200, it is judged as an error.
       if (res.code !== 200) {
-        Notify({ type: "danger", message: res.msg || "Error" });
-        // 403: forbidden login; 412: Token expired;
-        if (res.code === 412 || res.code === 403) {
-        //   store.dispatch("user/logout");
+        Toast(res.msg)
+        // 412: Token expired;
+        if (res.code === 412) {
+          store.dispatch("user/userLogout");
         }
         return Promise.reject(res.msg || "Error");
       } else {
@@ -61,7 +61,7 @@ const instance = axios.create({
     },
     error => {
       console.log("err" + error); 
-      Notify({ type: "danger", message: error.message || "Error" });
+      Toast(error.message)
       return Promise.reject(error.message);
     }
   );

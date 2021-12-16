@@ -33,7 +33,7 @@ const store: Module<StoreUser, unknown> = {
                 const { data, error } =  loginPassword(payload);
                 watch(data,()=>{
                     context.commit("mutateState", data.value);
-                    useCookies().set(VITE_TOKEN_KEY as string, data.value.token)
+                    useCookies().set(VITE_TOKEN_KEY as string, data.value.token,{maxAge:10*60*60*1000})
                     resolve(data.value);
                 })
 
@@ -63,7 +63,7 @@ const store: Module<StoreUser, unknown> = {
                 watch(data,()=>{
                     useCookies().remove(VITE_TOKEN_KEY as string);
                     window.location.href="/";
-                    resolve(data.value);
+                    // resolve(data.value);
                 })
 
                 watch(error,()=>{

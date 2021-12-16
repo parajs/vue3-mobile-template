@@ -23,10 +23,14 @@ export default defineComponent({
            })
           
         }
+
+        const onClickLeft = ()=>{
+            router.push("/")
+        }
        
         return ()=> (
             <CPage>
-                <NavBar leftText="欢迎来到 KuggaMeta"  left-arrow >
+                <NavBar leftText="欢迎来到 KuggaMeta"  left-arrow onClick-left={onClickLeft} >
                     {/* {{
                         left:()=>(
                             <>

@@ -92,8 +92,8 @@ export function loginPassword(data: AnyObject){
  * 获取用户资料
  * @returns UseAxiosReturn
  */
- export function userGet(data: AnyObject){
-    return useAxiosApi(`${urlPrefix}/user/get`,{method: 'POST',data});
+ export function userGet(params: AnyObject){
+    return useAxiosApi(`${urlPrefix}/user/get`,{method: 'GET',params});
 }
 
 /**
