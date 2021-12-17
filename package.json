@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "lint:fix": "eslint --ext .ts,.tsx,.vue --fix ."
   },
   "dependencies": {
     "@types/md5": "^2.3.1",

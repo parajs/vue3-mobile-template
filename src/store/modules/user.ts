@@ -47,7 +47,7 @@ const store: Module<StoreUser, unknown> = {
             return new Promise((resolve, reject) => {
                 const { data, error } =  userGet(payload);
                 watch(data,()=>{
-                    context.commit("mutateState", data.value);
+                    context.commit("mutateState", {user: data.value});
                     resolve(data.value);
                 })
 
