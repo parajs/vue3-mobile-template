@@ -2,13 +2,17 @@ import CAvatar from '@/components/CAvatar';
 import CPage from '@/components/CPage';
 import CTabbar from '@/components/CTabbar';
 import router from '@/router';
-import store from '@/store';
+import { useStore } from '@/store';
 import { Button, Col, Icon, Row } from 'vant';
-import { defineComponent } from 'vue';
+import { computed, defineComponent, unref } from 'vue';
 import styles from './my.module.less';
 export default defineComponent({
    name:'My',
    setup(){
+   const store = useStore();
+   const user =  unref(computed(() => store.state.user.user));
+   
+   const isAuthor = ()=> user.role_key == 'author';
 
    const navigatePage = (type: string) => {
       if(type === 'follow'){
@@ -26,7 +30,10 @@ export default defineComponent({
       }  
       
       if(type === 'personalHome'){
-         router.push({name:"PersonalHome"})
+         if(isAuthor()){
+            router.push({name:"PersonalHome"})
+         }
+         
       }  
    }
 
@@ -46,12 +53,17 @@ export default defineComponent({
            <div class={styles.myHeader}>
                <div class={`${styles.userBox} flex`} onClick={()=>{ navigatePage("personalHome") }}>
                   <div class="flexItem">
-                     <CAvatar size="60" src="https://img.yzcdn.cn/vant/cat.jpeg" />
-                     <span class="ml-3">用户昵称</span>
+                     <CAvatar 
+                     text={user.user_abbr} 
+                     color={user.user_backcolor}  
+                     size="60" 
+                     src={user.avatar} />
+                     <span class="ml-3">{user.nick_name}</span>
                   </div>
-                  <div>
-                     <Icon name="arrow" color="#fff" size="26"/>
-                  </div>
+                  {
+                     isAuthor() ? <Icon name="arrow" color="#fff" size="26"/> : null
+                  }
+                  
                </div>
               <Row class={styles.threePart}>
                  <Col span="8" onClick={()=>{ navigatePage("follow") }}>
