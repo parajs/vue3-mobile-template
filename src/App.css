@@ -1,7 +1,4 @@
-html, body, #app,.van-config-provider {
-  height: 100%;
-  /* background: #f2f2f2; */
-}
+
 
 a {
   color: var(--van-blue);

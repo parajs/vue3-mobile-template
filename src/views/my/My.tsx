@@ -1,15 +1,14 @@
-import { api_subindex_list } from '@/api';
 import CAvatar from '@/components/CAvatar';
 import CPage from '@/components/CPage';
 import CTabbar from '@/components/CTabbar';
 import router from '@/router';
+import store from '@/store';
 import { Button, Col, Icon, Row } from 'vant';
 import { defineComponent } from 'vue';
 import styles from './my.module.less';
 export default defineComponent({
    name:'My',
    setup(){
-   const { data } =  api_subindex_list({});
 
    const navigatePage = (type: string) => {
       if(type === 'follow'){
@@ -29,6 +28,12 @@ export default defineComponent({
       if(type === 'personalHome'){
          router.push({name:"PersonalHome"})
       }  
+   }
+
+   const userLogout = ()=>{
+      store.dispatch({
+         type: 'user/userLogout'
+      })
    }
    
 
@@ -71,7 +76,7 @@ export default defineComponent({
                  <div class="flexItem">修改密码</div>
                  <Icon name='arrow' color='#ddd' />
               </div>
-              <Button plain  type="default"   block>退出登录</Button>
+              <Button onClick={userLogout} plain  type="default"   block>退出登录</Button>
            </div>
       </CPage>
         

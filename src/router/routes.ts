@@ -70,6 +70,11 @@ const routes: RouteRecordRaw[] = [
       path:"/myResetPwd",
       component: ()=> import("@/views/myResetPwd/MyResetPwd"),
     },
+    {
+      name: 'Article',
+      path:"/article",
+      component: ()=> import("@/views/article/Article"),
+    },
   ];
 
 

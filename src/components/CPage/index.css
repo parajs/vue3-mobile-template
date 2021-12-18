@@ -13,7 +13,7 @@
 }
 
 .page-container {
-  height: inherit;
+  min-height: 100vh;
 }
 .page-header {
   position: fixed; 

@@ -1,15 +1,36 @@
 
 import CPage from "@/components/CPage";
+import router from "@/router";
+import store from '@/store';
+import { md5Encryption } from "@/utils";
 import { Button, Field, Form, NavBar } from 'vant';
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { RouterLink } from 'vue-router';
 import styles from './login.module.less';
 export default defineComponent({
     name:"Login",
     setup(){
+        const username = ref('');
+        const password = ref('');
+        const isLoadingRef = ref(false);
+
+        const onSubmit =  (values: AnyObject)=>{
+           const pwd =  md5Encryption(values.password);
+           values.password = pwd;
+
+           store.dispatch("user/loginPassword",values).then(()=>{
+             router.push({name:"Home"});
+           })
+          
+        }
+
+        const onClickLeft = ()=>{
+            router.push("/")
+        }
+       
         return ()=> (
             <CPage>
-                <NavBar leftText="欢迎来到 KuggaMeta"  left-arrow >
+                <NavBar leftText="欢迎来到 KuggaMeta"  left-arrow onClick-left={onClickLeft} >
                     {/* {{
                         left:()=>(
                             <>
@@ -24,10 +45,25 @@ export default defineComponent({
                         <div class={`${styles.accountLogin} flexItem`}>账号登录</div>
                         <RouterLink to={{name:'Register'}} >注册</RouterLink>
                     </div>
-                    <Form class="mt-8">
-                        <Field class={styles.inputText} placeholder="请输入邮箱账号" autocomplete="off" />
-                        <Field class={styles.inputText} type='password' placeholder="请输入密码" autocomplete="off" />
-                        <Button class="mt-6"type="primary" round block> 
+                    <Form class="mt-8" onSubmit={onSubmit}>
+                        <Field 
+                        class={styles.inputText}  
+                        rules={[{ required: true, message: '请输入邮箱账号' }]} 
+                        v-model={username.value} 
+                        name="username"
+                        placeholder="请输入邮箱账号" 
+                        autocomplete="off" 
+                        />
+                        <Field 
+                        class={styles.inputText} 
+                        rules={[{ required: true, message: '请输入密码' }]}
+                        v-model={password.value} 
+                        name="password"
+                        type='password' 
+                        placeholder="请输入密码" 
+                        autocomplete="off" 
+                        />
+                        <Button disabled={isLoadingRef.value} class="mt-6"type="primary" round block native-type="submit"> 
                             登录
                         </Button>
                     </Form>
