@@ -1,4 +1,4 @@
-import { loginPassword, userGet, userLogout } from "@/api";
+import { loginPassword, userGet } from "@/api";
 import { mutateState } from "@/utils";
 import { useCookies } from "@vueuse/integrations";
 import { watch } from "vue";
@@ -33,7 +33,7 @@ const store: Module<StoreUser, unknown> = {
                 const { data, error } =  loginPassword(payload);
                 watch(data,()=>{
                     context.commit("mutateState", data.value);
-                    useCookies().set(VITE_TOKEN_KEY as string, data.value.token,{maxAge:10*60*60*1000})
+                    useCookies().set(VITE_TOKEN_KEY as string, data.value.token)
                     resolve(data.value);
                 })
 
@@ -47,7 +47,7 @@ const store: Module<StoreUser, unknown> = {
             return new Promise((resolve, reject) => {
                 const { data, error } =  userGet(payload);
                 watch(data,()=>{
-                    context.commit("mutateState", data.value);
+                    context.commit("mutateState", {user: data.value});
                     resolve(data.value);
                 })
 
@@ -57,19 +57,11 @@ const store: Module<StoreUser, unknown> = {
                
             })
         },
-        userLogout(context, payload: AnyObject) {
-            return new Promise((resolve, reject) => {
-                const { data, error } =  userLogout(payload);
-                watch(data,()=>{
-                    useCookies().remove(VITE_TOKEN_KEY as string);
-                    window.location.href="/";
-                    // resolve(data.value);
-                })
-
-                watch(error,()=>{
-                    reject(error.value);
-                })
-               
+        userLogout() {
+            return new Promise((resolve) => {
+                useCookies().remove(VITE_TOKEN_KEY as string);
+                window.location.href="/";
+                resolve("退出成功");
             })
         }
     }
