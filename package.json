@@ -40,7 +40,7 @@
     "vite": "^2.6.4",
     "vite-plugin-eslint": "^1.3.0",
     "vite-plugin-style-import": "^1.4.0",
-    "vite-plugin-vconsole": "^1.1.0",
+    "vite-plugin-vconsole": "^1.1.1",
     "vue-tsc": "^0.3.0"
   }
 }
