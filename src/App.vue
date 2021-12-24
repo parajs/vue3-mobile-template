@@ -7,12 +7,13 @@
                     <component
                         v-if="route.meta && route.meta.keepAlive"
                         :is="Component"
-                        :key="route.meta.usePathKey ? route.path : undefined"
+                        :key="route.meta.usePathKey ? route.fullPath : undefined"
                     />
                 </keep-alive>
                 <component
                     v-if="!(route.meta && route.meta.keepAlive)"
                     :is="Component"
+                    :key="route.meta.usePathKey ? route.fullPath : undefined"
                 />
             </router-view>
         </template>

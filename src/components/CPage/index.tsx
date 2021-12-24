@@ -3,7 +3,8 @@ import { defineComponent, nextTick, onMounted, ref } from 'vue';
 import "./index.css";
 export default defineComponent({
     name:'CPage',
-    setup(props,{slots}){
+    setup(props,{slots, attrs}){
+        const  {hideHeaderPlaceholder,hideFooterPlaceholder } = attrs;
         const header = ref();
         const main = ref();
         const footer = ref();
@@ -51,7 +52,7 @@ export default defineComponent({
                 }
 
                 {
-                    slots.header ? <div style={{'height':headerh.value+'px'}}></div> : null
+                    slots.header && !hideHeaderPlaceholder ? <div style={{'height':headerh.value+'px'}}></div> : null
                 }
                 
                 <main ref={main} class="page-main">
@@ -60,7 +61,7 @@ export default defineComponent({
 
 
                 {
-                    slots.footer ? <div style={{'height':footerh.value+'px'}}></div> : null
+                    slots.footer && !hideFooterPlaceholder ? <div style={{'height':footerh.value+'px'}}></div> : null
                 }
 
                 {
