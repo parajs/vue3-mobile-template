@@ -198,7 +198,7 @@ a {
   line-clamp: 2;
   -webkit-box-orient: vertical;
   word-break: break-all;
-  height: 40px;
+  max-height: 40px;
 }
 
 .text-center {
