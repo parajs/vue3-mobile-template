@@ -26,6 +26,12 @@ export default defineComponent({
                name: "Article",
            })
          }
+
+         if(type === 'video'){
+            router.push({
+               name: "Video",
+           })
+         }
          
      }
 
@@ -40,7 +46,7 @@ export default defineComponent({
        return ()=> (
               <CPage v-slots={slots} style="background:var(--van-gray-1)">
                   <NavBar  v-slots={navbarslots}></NavBar>
-                  <CHomeVideoItem class="mb-2" />
+                  <CHomeVideoItem onClick={()=> navigatePage('video')} class="mb-2" />
                   <CHomeArticleItem onClick={()=> navigatePage('article')} class="mb-2" />
                   <CHomeVideoItem class="mb-2"/>
                   <CHomeAudioItem class="mb-2" />
