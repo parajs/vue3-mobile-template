@@ -18,6 +18,7 @@ const authList: Array<string> = ['My','MsgList','FollowList','Profile','ModifyPw
 router.beforeEach(async(to, from, next) => {
   // set title
    useTitle( to.meta?.title as string || VITE_TITLE as string);
+   
    // determine whether the user has logged in
    const hasToken = useCookies().get(VITE_TOKEN_KEY as string);
    if (hasToken) {

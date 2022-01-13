@@ -18,7 +18,8 @@ export default function ({ command } : ConfigEnv): UserConfigExport{
     server: {
       host: '0.0.0.0', // 解决不能通过ip访问
       proxy: {
-        '/api': 'http://api.beehub.paradeum.com:8110'
+        '/api': 'http://api.beehub.paradeum.com:8110',
+        '/static':'http://api.beehub.paradeum.com:8110'
       }
     },
     plugins: [

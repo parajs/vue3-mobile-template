@@ -1,26 +1,10 @@
-.safe-area-inset-top {
-  /* Status bar height on iOS 11.0 */
-  padding-top: constant(safe-area-inset-top);
-  /* Status bar height on iOS 11+ */
-  padding-top: calc(env(safe-area-inset-top) * 1);
-}
-
-.safe-area-inset-bottom {
-  /* Status bar height on iOS 11.0 */
-  padding-bottom: constant(safe-area-inset-bottom);
-  /* Status bar height on iOS 11+ */
-  padding-bottom: calc(env(safe-area-inset-bottom) * 1);
-}
-
-.page-container {
-  min-height: 100vh;
-}
 .page-header {
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10000;
+  z-index: 100;
+  overflow: hidden;
 }
 
 .page-main {
@@ -34,4 +18,5 @@
   right: 0;
   width: 100%;
   z-index: 200;
+  overflow: hidden;
 }

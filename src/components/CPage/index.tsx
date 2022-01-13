@@ -1,15 +1,21 @@
-import { useEventListener } from "@vueuse/core";
+import { useEventListener, useWindowSize } from "@vueuse/core";
 import { defineComponent, nextTick, onMounted, ref } from 'vue';
 import "./index.css";
-export default defineComponent({
+
+interface CPageOptions {
+    hideHeaderPlaceholder?: boolean;
+    hideFooterPlaceholder?: boolean;
+}
+export default defineComponent<CPageOptions>({
     name:'CPage',
-    setup(props,{slots, attrs}){
+    setup(props,{slots,attrs}){
         const  {hideHeaderPlaceholder,hideFooterPlaceholder } = attrs;
         const header = ref();
         const main = ref();
         const footer = ref();
         const headerh = ref(0);
         const footerh = ref(0);
+        const { height } = useWindowSize();
         const ev =  window.onorientationchange ? "orientationchange" :"resize";
 
         const setHeaderHeight = ()=>{
@@ -39,12 +45,12 @@ export default defineComponent({
         })
 
         return ()=> (
-            <div class="page-container">
+            <div class="page-container" style={{minHeight: height.value + 'px'}}>
                 {
                     slots.header ? (  
                     <header
                         ref={header}
-                        class="page-header safe-area-inset-top"
+                        class="page-header"
                         >
                              {slots.header?.()}
                         </header>
@@ -68,7 +74,7 @@ export default defineComponent({
                     slots.footer ? (
                         <footer
                         ref={footer}
-                        class="page-footer safe-area-inset-bottom"
+                        class="page-footer"
                         >
                          {slots.footer?.()}
                         </footer>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
@@ -10,5 +10,30 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <script>
+      document.addEventListener('touchstart',function (event) {
+       
+        if(event.touches.length>1){
+          event.preventDefault();
+        }
+      });
+
+      var lastTouchEnd=0;
+
+      document.addEventListener('touchend',function (event) {
+        var now=(new Date()).getTime();
+        if(now-lastTouchEnd<=300){
+          event.preventDefault();
+        }
+
+        lastTouchEnd=now;
+
+      },false);
+
+      document.addEventListener('gesturestart', function (event) {
+        event.preventDefault();
+      });
+
+  </script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 import { InjectionKey } from "vue";
 import { createLogger, createStore, Store, useStore as baseUseStore } from "vuex";
-import { context, loadModules, modules } from "./modules";
+import { modules } from "./modules";
 const  { DEV } = import.meta.env;
 
 export interface State {
@@ -21,13 +21,13 @@ export function useStore() {
 }
 
 // 热重载
-if (import.meta.hot) {
-    import.meta.hot?.accept(Object.keys(context), () => {
-        const { modules } = loadModules()
-        store.hotUpdate({
-            modules
-        })
-    })
-}
+// if (import.meta.hot) {
+//     import.meta.hot?.accept(Object.keys(context), () => {
+//         const { modules } = loadModules()
+//         store.hotUpdate({
+//             modules
+//         })
+//     })
+// }
 
 export default store;
