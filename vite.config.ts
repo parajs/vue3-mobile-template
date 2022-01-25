@@ -1,7 +1,7 @@
 import legacy from '@vitejs/plugin-legacy';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import path from "path";
+import path from 'path';
 import { ConfigEnv, UserConfigExport } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
 import styleImport, { VantResolve } from 'vite-plugin-style-import';
@@ -13,23 +13,23 @@ function resolve(dir: string) {
 
 // https://vitejs.dev/config/
 
-export default function ({ command } : ConfigEnv): UserConfigExport{
+export default function ({ command }: ConfigEnv): UserConfigExport {
   return {
     server: {
       host: '0.0.0.0', // 解决不能通过ip访问
       proxy: {
         '/api': 'http://api.beehub.paradeum.com:8110',
-        '/static':'http://api.beehub.paradeum.com:8110'
+        '/static': 'http://api.beehub.paradeum.com:8110'
       }
     },
     plugins: [
       vue(),
       vueJsx(),
-      eslintPlugin(),
+      eslintPlugin({
+        fix: true
+      }),
       styleImport({
-        libs: [
-          VantResolve()
-        ],
+        libs: [VantResolve()]
       }),
       legacy({
         targets: ['defaults', 'not IE 11']
@@ -42,12 +42,12 @@ export default function ({ command } : ConfigEnv): UserConfigExport{
           maxLogNumber: 1000,
           theme: 'dark'
         }
-      }),
+      })
     ],
-    resolve:{
+    resolve: {
       alias: {
-        '@': resolve('./src'),
+        '@': resolve('./src')
       }
     }
-  }
+  };
 }

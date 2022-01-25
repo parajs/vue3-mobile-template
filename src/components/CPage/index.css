@@ -4,7 +4,6 @@
   left: 0;
   right: 0;
   z-index: 100;
-  overflow: hidden;
 }
 
 .page-main {
@@ -18,5 +17,4 @@
   right: 0;
   width: 100%;
   z-index: 200;
-  overflow: hidden;
 }

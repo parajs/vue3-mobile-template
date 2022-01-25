@@ -1,10 +1,7 @@
-import { defineComponent } from "vue";
-
+import { defineComponent } from 'vue';
 
 export default defineComponent({
-    setup(){
-        return ()=> (
-            <div>ddddddddddddd</div>
-        )
-    }
-})
+  setup() {
+    return () => <div>ddddddddddddd</div>;
+  }
+});

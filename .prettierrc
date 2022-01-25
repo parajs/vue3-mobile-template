@@ -6,5 +6,5 @@
   "useTabs": false,
   "htmlWhitespaceSensitivity": "strict",
   "trailingComma": "none",
-  "endOfLine": "lf"
+  "endOfLine": "auto"
 }
