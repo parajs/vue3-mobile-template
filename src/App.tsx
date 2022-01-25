@@ -11,26 +11,29 @@ export default defineComponent({
       >
         <Suspense onFallback={() => <div> Loading...</div>}>
           <RouterView>
-            {({ Component, route }) => {
-              const { meta } = route;
-              const isKeepAlive = meta && meta.keepAlive;
-              return (
-                <>
-                  <KeepAlive>
-                    {isKeepAlive ? (
+            {
+              //@ts-ignore
+              ({ Component, route }) => {
+                const { meta } = route;
+                const isKeepAlive = meta && meta.keepAlive;
+                return (
+                  <>
+                    <KeepAlive>
+                      {isKeepAlive ? (
+                        <Component
+                          key={meta.usePathKey ? route.fullPath : undefined}
+                        />
+                      ) : null}
+                    </KeepAlive>
+                    {!isKeepAlive ? (
                       <Component
                         key={meta.usePathKey ? route.fullPath : undefined}
                       />
                     ) : null}
-                  </KeepAlive>
-                  {!isKeepAlive ? (
-                    <Component
-                      key={meta.usePathKey ? route.fullPath : undefined}
-                    />
-                  ) : null}
-                </>
-              );
-            }}
+                  </>
+                );
+              }
+            }
           </RouterView>
         </Suspense>
       </ConfigProvider>
