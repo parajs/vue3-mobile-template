@@ -36,8 +36,8 @@ export default function ({ command }: ConfigEnv): UserConfigExport {
       }),
       viteVConsole({
         entry: path.resolve('src/main.ts'), // entry file
-        localEnabled: command == 'serve', // dev environment
-        enabled: command != 'serve', // build production
+        localEnabled: true, // dev environment
+        enabled: false, // build production
         config: {
           maxLogNumber: 1000,
           theme: 'dark'

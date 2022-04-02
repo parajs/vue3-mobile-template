@@ -31,7 +31,9 @@ const store: Module<StoreUser, unknown> = {
         const { data, error } = loginPassword(payload);
         watch(data, () => {
           context.commit('mutateState', data.value);
-          useCookies().set(VITE_TOKEN_KEY as string, data.value.token);
+          useCookies().set(VITE_TOKEN_KEY as string, data.value.token, {
+            path: '/'
+          });
           resolve(data.value);
         });
 
@@ -55,7 +57,7 @@ const store: Module<StoreUser, unknown> = {
     },
     userLogout() {
       return new Promise((resolve) => {
-        useCookies().remove(VITE_TOKEN_KEY as string);
+        useCookies().remove(VITE_TOKEN_KEY as string, { path: '/' });
         window.location.href = '/';
         resolve('退出成功');
       });
